@@ -12,3 +12,5 @@ I
 docker/docker-compose.yml,3\f\3fe733692645251b38d6ef0a55b2d48c3a1cf387
 †
 Vserver-config/src/main/java/com/configserver/serverconfig/ServerConfigApplication.java,5\0\50fb492bad9c9432d355979fab9845b831f1a56a
+C
+api-catalog/pom.xml,d\a\da27917e36cb42e1f9ffbfa788c1850daf194652
