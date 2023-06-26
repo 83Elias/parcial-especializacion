@@ -1,6 +1,7 @@
 package com.dh.apiserie.service;
 
 import com.dh.apiserie.model.Serie;
+import com.dh.apiserie.publisher.RabbitMQProducer;
 import com.dh.apiserie.repository.SerieRepository;
 import org.springframework.stereotype.Service;
 
@@ -10,11 +11,13 @@ import java.util.List;
 public class SerieService {
 
     private final SerieRepository repository;
+    private final RabbitMQProducer rabbitMQProducer;
 
 
 
-    public SerieService(SerieRepository repository) {
+    public SerieService(SerieRepository repository, RabbitMQProducer rabbitMQProducer) {
         this.repository = repository;
+        this.rabbitMQProducer = rabbitMQProducer;
     }
 
 
@@ -24,6 +27,10 @@ public class SerieService {
     }
 
     public Serie createSerie(Serie serieDto) {
-        return repository.save(serieDto);
+        Serie serieSaved=repository.save(serieDto);
+
+        rabbitMQProducer.sendMessage(serieSaved.toString());
+
+        return serieSaved;
     }
 }

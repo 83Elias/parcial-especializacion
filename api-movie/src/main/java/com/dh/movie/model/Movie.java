@@ -28,4 +28,13 @@ public class Movie implements Serializable {
 
     private String urlStream;
 
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", genre='" + genre + '\'' +
+                ", urlStream='" + urlStream + '\'' +
+                '}';
+    }
 }

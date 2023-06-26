@@ -15,6 +15,17 @@ spring:
   zipkin:
     base-url: http://localhost:9411
     enable: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+  mq:
+    queue:
+       name: movieSender
+    exchange: 'movie_event_exchange'
+    key-routing: "movie_event_key_routing"
 
 eureka:
   client:
