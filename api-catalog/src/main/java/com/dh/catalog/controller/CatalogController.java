@@ -2,6 +2,8 @@ package com.dh.catalog.controller;
 
 import com.dh.catalog.client.MovieServiceClient;
 
+import com.dh.catalog.client.SerieFeingClient;
+import com.dh.catalog.service.CatalogService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,15 +16,21 @@ import java.util.List;
 @RequestMapping("/api/v1/catalog")
 public class CatalogController {
 
-	private final MovieServiceClient movieServiceClient;
 
-	public CatalogController(MovieServiceClient movieServiceClient) {
-		this.movieServiceClient = movieServiceClient;
+	private final CatalogService catalogService;
+
+	public CatalogController(CatalogService catalogService) {
+		this.catalogService = catalogService;
+
 	}
 
-	@GetMapping("/{genre}")
-	ResponseEntity<List<MovieServiceClient.MovieDto>> getGenre(@PathVariable String genre) {
-		return ResponseEntity.ok(movieServiceClient.getMovieByGenre(genre));
+	@GetMapping("/type/{category}/{genre}")
+	ResponseEntity<List<?>> getGenre(@PathVariable String genre,@PathVariable String category) {
+		if (category.equals("serie")){
+			return ResponseEntity.ok(catalogService.getSeriePerGenre(genre));
+		}
+
+		return ResponseEntity.ok(catalogService.getMoviePerGenre(genre));
 	}
 
 }

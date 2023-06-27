@@ -24,6 +24,11 @@ public class MovieController {
     @GetMapping("/{genre}")
     ResponseEntity<List<Movie>> getMovieByGenre(@PathVariable String genre) {
         log.info("find movie with gender: {}",genre);
+        //change to false for disable circuit brakear falllback test
+        if (true){
+
+            throw  new RuntimeException();
+        }
         return ResponseEntity.ok().body(movieService.findByGenre(genre));
     }
 

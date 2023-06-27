@@ -24,6 +24,11 @@ public class SerieController {
     @GetMapping("/{genre}")
     ResponseEntity<List<Serie>> getSerieByGenre(@PathVariable String genre){
         log.info("search gender with name {}",genre);
+        //change to true for validate circuit braker catalog  api
+        if (false){
+
+          throw  new RuntimeException();
+        }
         return ResponseEntity.ok(serieService.getSeriesBygGenre(genre));
     }
 
