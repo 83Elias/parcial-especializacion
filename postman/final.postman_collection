@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "de0b67bb-2abb-411c-bfe8-53a5390cd31f",
+		"name": "parcial bacck end 1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14081882"
+	},
+	"item": [
+		{
+			"name": "Crear  Pelicula (balanceador gateway)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Kruder\",\r\n    \"genre\":\"Terror\",\r\n    \"urlStream\":\"neflix.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/api/v1/movies/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"v1",
+						"movies",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear  Pelicula",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Kruder\",\r\n    \"genre\":\"Terror\",\r\n    \"urlStream\":\"neflix.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/api/v1/movies/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"v1",
+						"movies",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener pelicula por genero (balanceador gateway) Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/v1/movies/Terror",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"v1",
+						"movies",
+						"Terror"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener catalogo  (balanceador gateway)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/v1/catalog/Accion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"v1",
+						"catalog",
+						"Accion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get properties by micro services",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/gateway-service/dev",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"gateway-service",
+						"dev"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get series",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/gateway-service/dev",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"gateway-service",
+						"dev"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create serie",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"test-rabbit\",\r\n    \"genre\": \"Terror\",\r\n    \"seasons\": [\r\n        {\r\n            \"seasonNumber\": 1,\r\n            \"chapters\": [\r\n                {\r\n                    \"name\": \"test\",\r\n                    \"number\": 1,\r\n                    \"urlStream\": \"neflix.com\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:55231/api/v1/series",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "55231",
+					"path": [
+						"api",
+						"v1",
+						"series"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
